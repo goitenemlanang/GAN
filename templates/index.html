@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="static\css\intdraw.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card__block">
+        <form class="card__login" action="/login" method="post">
+            <input class="login__input" type="text" name="username" placeholder="Tên đăng nhập">
+            <input id="login__login" class="login__btn" type="submit" value="Đăng nhập">
+        </form>
+        <form class="card__logout" style="display: none;" action="/logout" method="post"> 
+            <img id="avatar" src="" alt="">
+            <h2 id="name__avatar">fsaf</h2>
+            <input class="login__btn" type="submit" value="Đăng Xuất">
+        </form>
+        <div class="modal hide">
+            <div style=" display: none;" class="error">
+                <div class="error__heading">
+                    <h3>Sai Tên Tài Khoản !!!</h3>
+                    <div class="error__icon">
+                        <i class='bx bx-x'></i>
+                    </div>
+                </div>
+                <div class="error__mid">
+                    <h3>Xin vui Nhập Lại Tài Khoản</h3>
+                </div>
+                <div class="error__footer">
+                    <button class="error__exit">Close</button>
+                </div>
+            </div>
+        </div>
+        <h1>Group 2: Image Inpaiting  Gan</h1>
+        <div class="card">
+            <div class="col-md-12">              
+                  <div class="app">
+                    <div id="background" >
+                        <!-- <div id="canvas" style="border: 2px dashed black; border-radius: 2px;"></div> -->
+                        <div id="canvas" style="border: 2px dashed black; border-radius: 2px; width: 100%; height: 100%; background-image: url(''); background-size: 100% 100%; background-repeat: no-repeat;"></div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="card-footer "style="text-end">
+                    <div class="d-flex justify-content-start " >
+                        <div class="d-flex align-items-end">            
+                          <button type="button" id ="save" class="btn btn-success nav" style="width: 100px; ;font-size: 20px; margin-top: 40px; margin-left: 650px;" ><strong>Submit</strong></button>
+                          <input type="file" id="load" name="avatar">
+                        </div>
+                       </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="static\js\initdraw.js"></script>
+</body>
+</html>

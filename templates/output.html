@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <link rel="stylesheet" href="/static/css/output.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- <p class="mine">Move slider to see changes</p> -->
+    <div class="wrapper">
+      <div class="images">
+        <div class="img-1"></div>
+        <div class="img-2"></div>
+      </div>
+      <div class="slider">
+        <div class="drag-line">
+          <span></span>
+        </div>
+        <input type="range" min="0" max="100" value="50" />
+      </div>
+      <a class="btn btn-lg btn-warning m-3" href="/brush">Back</a>
+      <div class="btn__down">
+        <i class="bx bxs-cloud-download"></i>
+        <h2>DownLoad</h2>
+      </div>
+    </div>
+
+    <script>
+      const slider = document.querySelector(".slider input");
+      const img = document.querySelector(".images .img-2");
+      const dragLine = document.querySelector(".slider .drag-line");
+      slider.oninput = () => {
+        let sliderVal = slider.value;
+        dragLine.style.left = sliderVal + "%";
+        img.style.width = sliderVal + "%";
+      };
+      const downloadButton = document.querySelector(".btn__down");
+      downloadButton.addEventListener("click", () => {
+        const imgUrl = img.style.backgroundImage.replace(
+          /^url\(['"](.+)['"]\)$/i,
+          "$1"
+        );
+        const link = document.createElement("a");
+        link.href = imgUrl;
+        link.download = "image.jpg"; // Đặt tên tập tin tải về
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    </script>
+    <script>
+      document.querySelector(".img-1").style.backgroundImage =
+        "url({{url_for('static', filename='images/i'+img_name)}})";
+
+      document.querySelector(".img-2").style.backgroundImage =
+        "url({{url_for('static', filename='images/o'+img_name)}})";
+      //location.reload(true)
+    </script>
+  </body>
+</html>
